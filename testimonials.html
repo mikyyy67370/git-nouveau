@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avis Clients - Portfolio UI/UX Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/testimonials.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <!-- Même header que index.html -->
+    </header>
+
+    <main>
+        <section class="testimonials">
+            <div class="section-header">
+                <span class="section-subtitle">Témoignages</span>
+                <h1>Ce que disent mes clients</h1>
+                <p class="section-description">Découvrez les retours d'expérience de mes clients</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Les témoignages seront ajoutés dynamiquement via JavaScript -->
+            </div>
+            <div class="testimonial-cta">
+                <p>Vous souhaitez partager votre expérience ?</p>
+                <button class="cta-button" id="addTestimonial">Ajouter un avis</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Même footer que index.html -->
+    </footer>
+
+    <!-- Modal pour ajouter un avis -->
+    <div class="modal" id="testimonialModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Partagez votre expérience</h2>
+            <form id="testimonialForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Votre entreprise" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Votre témoignage" required></textarea>
+                </div>
+                <div class="rating-group">
+                    <p>Votre note :</p>
+                    <div class="stars">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <script src="js/testimonials.js"></script>
+</body>
+</html> 

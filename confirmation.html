@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Envoyé - Portfolio UI/UX Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/confirmation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="confirmation-card">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Message Envoyé !</h1>
+            <p>Merci <span id="userName"></span> de m'avoir contacté. Je vous répondrai dans les plus brefs délais.</p>
+            <div class="confirmation-details">
+                <p class="response-time">Temps de réponse estimé : 24-48h</p>
+                <div class="message-details">
+                    <p>Récapitulatif de votre message :</p>
+                    <div class="message-preview" id="messagePreview"></div>
+                </div>
+                <div class="contact-info">
+                    <p>En attendant, vous pouvez :</p>
+                    <ul>
+                        <li>Explorer mon <a href="index.html#portfolio">portfolio</a></li>
+                        <li>Voir mes derniers <a href="index.html#portfolio">projets</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="confirmation-actions">
+                <button onclick="goBack()" class="btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Retour
+                </button>
+                <a href="index.html" class="btn-primary">Retour à l'accueil</a>
+            </div>
+        </div>
+    </div>
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <script src="js/confirmation.js"></script>
+</body>
+</html> 
