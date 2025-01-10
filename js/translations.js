@@ -65,6 +65,36 @@ const translations = {
 
         // Footer
         copyright: "© 2024 Portfolio Dev. Tous droits réservés.",
+
+        // Services Section
+        uiDesign: "UI Design",
+        uiDesignDesc: "Création d'interfaces utilisateur modernes et attrayantes pour web.",
+        webDev: "Développement Web",
+        webDevDesc: "Développement de sites web et d'applications web performants.",
+        mobileApp: "Applications Mobile",
+        mobileAppDesc: "Création d'applications mobiles natives et hybrides.",
+        learnMore: "En savoir plus",
+        
+        // Features des services
+        designSystem: "Design System",
+        responsiveDesign: "Responsive Design",
+        prototyping: "Prototypage",
+        webTech: "HTML/CSS/JavaScript",
+        frameworks: "React/Vue.js",
+        responsiveSites: "Sites Responsifs",
+        reactNative: "React Native",
+        mobileOS: "iOS/Android",
+        mobileUX: "UX Mobile",
+
+        brandIdentity: "Identité Visuelle",
+        brandIdentityDesc: "Création d'identités visuelles uniques et mémorables pour startups.",
+        brandStrategy: "Stratégie de marque",
+        logoDesign: "Logo & Charte graphique",
+        brandGuidelines: "Guide de marque",
+
+        messageSent: "Message envoyé !",
+        confirmationMessage: "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
+        backToHome: "Retour à l'accueil"
     },
 
     en: {
@@ -133,6 +163,36 @@ const translations = {
 
         // Footer
         copyright: "© 2024 Dev Portfolio. All rights reserved.",
+
+        // Services Section
+        uiDesign: "UI Design",
+        uiDesignDesc: "Creation of modern and attractive user interfaces for web.",
+        webDev: "Web Development",
+        webDevDesc: "Development of high-performance websites and web applications.",
+        mobileApp: "Mobile Applications",
+        mobileAppDesc: "Creation of native and hybrid mobile applications.",
+        learnMore: "Learn more",
+
+        // Features des services
+        designSystem: "Design System",
+        responsiveDesign: "Responsive Design",
+        prototyping: "Prototyping",
+        webTech: "HTML/CSS/JavaScript",
+        frameworks: "React/Vue.js",
+        responsiveSites: "Responsive Sites",
+        reactNative: "React Native",
+        mobileOS: "iOS/Android",
+        mobileUX: "Mobile UX",
+
+        brandIdentity: "Brand Identity",
+        brandIdentityDesc: "Creating unique and memorable visual identities for startups.",
+        brandStrategy: "Brand Strategy",
+        logoDesign: "Logo & Brand Design",
+        brandGuidelines: "Brand Guidelines",
+
+        messageSent: "Message envoyé !",
+        confirmationMessage: "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
+        backToHome: "Retour à l'accueil"
     },
 
     de: {
@@ -186,6 +246,36 @@ const translations = {
         message: "Nachricht",
         send: "Senden",
         copyright: "© 2024 Entwickler Portfolio. Alle Rechte vorbehalten.",
+
+        // Services Section
+        uiDesign: "UI Design",
+        uiDesignDesc: "Erstellung moderner und attraktiver Benutzeroberflächen für das Web.",
+        webDev: "Webentwicklung",
+        webDevDesc: "Entwicklung leistungsstarker Websites und Webanwendungen.",
+        mobileApp: "Mobile Anwendungen",
+        mobileAppDesc: "Entwicklung nativer und hybrider mobiler Anwendungen.",
+        learnMore: "Mehr erfahren",
+
+        // Features des services
+        designSystem: "Design System",
+        responsiveDesign: "Responsive Design",
+        prototyping: "Prototyping",
+        webTech: "HTML/CSS/JavaScript",
+        frameworks: "React/Vue.js",
+        responsiveSites: "Responsive Websites",
+        reactNative: "React Native",
+        mobileOS: "iOS/Android",
+        mobileUX: "Mobile UX",
+
+        brandIdentity: "Identité Visuelle",
+        brandIdentityDesc: "Création d'identités visuelles uniques et mémorables pour startups.",
+        brandStrategy: "Stratégie de marque",
+        logoDesign: "Logo & Charte graphique",
+        brandGuidelines: "Guide de marque",
+
+        messageSent: "Message envoyé !",
+        confirmationMessage: "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
+        backToHome: "Retour à l'accueil"
     },
 
     es: {
@@ -239,5 +329,35 @@ const translations = {
         message: "Mensaje",
         send: "Enviar",
         copyright: "© 2024 Portfolio de Desarrollo. Todos los derechos reservados.",
+
+        // Services Section
+        uiDesign: "Diseño UI",
+        uiDesignDesc: "Creación de interfaces de usuario modernas y atractivas para web.",
+        webDev: "Desarrollo Web",
+        webDevDesc: "Desarrollo de sitios web y aplicaciones web de alto rendimiento.",
+        mobileApp: "Aplicaciones Móviles",
+        mobileAppDesc: "Creación de aplicaciones móviles nativas e híbridas.",
+        learnMore: "Saber más",
+
+        // Features des services
+        designSystem: "Sistema de Diseño",
+        responsiveDesign: "Diseño Responsivo",
+        prototyping: "Prototipado",
+        webTech: "HTML/CSS/JavaScript",
+        frameworks: "React/Vue.js",
+        responsiveSites: "Sitios Responsivos",
+        reactNative: "React Native",
+        mobileOS: "iOS/Android",
+        mobileUX: "UX Móvil",
+
+        brandIdentity: "Identidad Visual",
+        brandIdentityDesc: "Creación de identidades visuales únicas y memorables para startups.",
+        brandStrategy: "Estrategia de marca",
+        logoDesign: "Logo & Diseño de marca",
+        brandGuidelines: "Guías de marca",
+
+        messageSent: "Message envoyé !",
+        confirmationMessage: "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
+        backToHome: "Retour à l'accueil"
     }
 }; 

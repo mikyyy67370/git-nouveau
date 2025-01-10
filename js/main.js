@@ -22,7 +22,7 @@ const projects = [
         category: "web",
         image: "image/projects/artist-portfolio.jpg",
         description: "Site web responsive pour artiste",
-        link: "https://transcendent-kelpie-bc6237.netlify.app/"
+        link: "https://portfoliophotography.netlify.app/",
     },
     {
         id: 6,
@@ -145,20 +145,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Configuration EmailJS
+(function() {
+    emailjs.init("VOTRE_CLE_PUBLIQUE"); // Remplacez par votre clé publique EmailJS
+})();
+
 // Gestion du formulaire de contact
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    console.log('Form found:', contactForm); // Debug
     
-    // Récupération des données du formulaire
-    const formData = new FormData(this);
-    const formDataObj = {};
-    formData.forEach((value, key) => formDataObj[key] = value);
-    
-    // Stockage temporaire des données (simulation)
-    localStorage.setItem('contactFormData', JSON.stringify(formDataObj));
-    
-    // Redirection vers la page de confirmation
-    window.location.href = 'confirmation.html';
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Form submitted'); // Debug
+            
+            // Récupération des données du formulaire
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            console.log('Form data:', formData); // Debug
+
+            // Stockage des données pour la page de confirmation
+            localStorage.setItem('contactFormData', JSON.stringify(formData));
+            
+            // Redirection
+            window.location.href = 'confirmation.html';
+        });
+    }
 });
 
 // Gestion du bouton retour en haut
@@ -233,4 +249,36 @@ function updateLanguage(language) {
 
     // Mise à jour des projets
     displayProjects(document.querySelector('.filter-btn.active').dataset.filter);
-} 
+}
+
+// Gestion du carrousel de témoignages
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.testimonials-slider');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const cards = document.querySelectorAll('.testimonial-card');
+    let currentIndex = 0;
+
+    function updateSlider() {
+        const cardWidth = cards[0].offsetWidth + 32; // Largeur + gap
+        slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const maxIndex = cards.length - Math.floor(slider.offsetWidth / cards[0].offsetWidth);
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
+
+    // Mise à jour lors du redimensionnement
+    window.addEventListener('resize', updateSlider);
+}); 

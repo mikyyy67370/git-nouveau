@@ -11,13 +11,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
-                <span class="logo-text">Mikael Portfolio</span>
-                <div class="logo-dot"></div>
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">Mikael Portfolio</span>
+                    <div class="logo-dot"></div>
+                </a>
             </div>
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
@@ -88,10 +91,12 @@
             <div class="projects-grid">
                 <!-- Les projets sont générés via JavaScript -->
             </div>
-            <div class="portfolio-cta">
-                <p data-i18n="haveProject">Vous avez un projet en tête ?</p>
-                <a href="#contact" class="cta-button" data-i18n="letsDiscuss">Discutons-en</a>
-            </div>
+            <section class="project-cta">
+                <div class="project-cta-content">
+                    <h2 data-i18n="haveProject">Vous avez un projet en tête ?</h2>
+                    <a href="#contact" class="cta-button" data-i18n="letsDiscuss">Discutons-en</a>
+                </div>
+            </section>
         </section>
 
         <section id="about" class="about">
@@ -130,29 +135,33 @@
                             </div>
                         </div>
                         <div class="skills-section">
-                            <h3 data-i18n="skills">Compétences</h3>
-                            <div class="skills-grid">
-                                <div class="skill-category">
-                                    <h4 data-i18n="design">Design</h4>
-                                    <div class="skill-tags">
-                                        <span>Figma</span>
-                                        <span>Adobe XD</span>
-                                        <span>Sketch</span>
-                                    </div>
+                            <div class="skills-container">
+                                <div class="skills-header">
+                                    <h3 data-i18n="skills">Compétences</h3>
                                 </div>
-                                <div class="skill-category">
-                                    <h4 data-i18n="development">Développement</h4>
-                                    <div class="skill-tags">
-                                        <span>HTML/CSS</span>
-                                        <span>JavaScript</span>
+                                <div class="skills-grid">
+                                    <div class="skill-category">
+                                        <h4 data-i18n="design">Design</h4>
+                                        <div class="skill-tags">
+                                            <span>Figma</span>
+                                            <span>Adobe XD</span>
+                                            <span>Sketch</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="skill-category">
-                                    <h4 data-i18n="ux">UX</h4>
-                                    <div class="skill-tags">
-                                        <span>User Research</span>
-                                        <span>Prototyping</span>
-                                        <span>Design System</span>
+                                    <div class="skill-category">
+                                        <h4 data-i18n="development">Développement</h4>
+                                        <div class="skill-tags">
+                                            <span>HTML/CSS</span>
+                                            <span>JavaScript</span>
+                                        </div>
+                                    </div>
+                                    <div class="skill-category">
+                                        <h4 data-i18n="ux">UX</h4>
+                                        <div class="skill-tags">
+                                            <span>User Research</span>
+                                            <span>Prototyping</span>
+                                            <span>Design System</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -160,20 +169,16 @@
                     </div>
                     <div class="about-image">
                         <div class="image-container">
-                            <img src="image/projects/about-profile.jpg" alt="Profile">
+                            <img src="image/profile.jpg" alt="Profile">
                             <div class="image-overlay"></div>
                         </div>
-                        <div class="experience-badge">
-                            <span class="years">3+</span>
-                            <span class="text" data-i18n="yearsExperience">ans d'expérience</span>
-                        </div>
-                        <div class="about-stats">
-                            <div class="stat">
-                                <span class="stat-number">30+</span>
-                                <span class="stat-label" data-i18n="projectsCompleted">Projets</span>
+                        <div class="stats-container">
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                                <span class="stat-number">30</span>
+                                <span class="stat-label" data-i18n="projectsCompleted">Projets réalisés</span>
                             </div>
-                            <div class="stat">
-                                <span class="stat-number">20+</span>
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                                <span class="stat-number">20</span>
                                 <span class="stat-label" data-i18n="clientsServed">Clients</span>
                             </div>
                         </div>
@@ -193,16 +198,43 @@
                     <div class="service-icon">
                         <i class="fas fa-desktop"></i>
                     </div>
-                    <h3>UI Design</h3>
-                    <p>Création d'interfaces utilisateur modernes et attrayantes pour web.</p>
+                    <h3 data-i18n="uiDesign">UI Design</h3>
+                    <p data-i18n="uiDesignDesc">Création d'interfaces utilisateur modernes et attrayantes pour web.</p>
                     <ul class="service-features">
-                        <li>Design System</li>
-                        <li>Responsive Design</li>
-                        <li>Prototypage</li>
+                        <li data-i18n="designSystem">Design System</li>
+                        <li data-i18n="responsiveDesign">Responsive Design</li>
+                        <li data-i18n="prototyping">Prototypage</li>
                     </ul>
-                    <a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="service-link"><span data-i18n="learnMore">En savoir plus</span> <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <!-- Répéter pour les autres services -->
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-i18n="webDev">Développement Web</h3>
+                    <p data-i18n="webDevDesc">Développement de sites web et d'applications web performants.</p>
+                    <ul class="service-features">
+                        <li data-i18n="webTech">HTML/CSS/JavaScript</li>
+                        <li data-i18n="frameworks">React/Vue.js</li>
+                        <li data-i18n="responsiveSites">Sites Responsifs</li>
+                    </ul>
+                    <a href="#contact" class="service-link"><span data-i18n="learnMore">En savoir plus</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 data-i18n="brandIdentity">Identité Visuelle</h3>
+                    <p data-i18n="brandIdentityDesc">Création d'identités visuelles uniques et mémorables pour startups.</p>
+                    <ul class="service-features">
+                        <li data-i18n="brandStrategy">Stratégie de marque</li>
+                        <li data-i18n="logoDesign">Logo & Charte graphique</li>
+                        <li data-i18n="brandGuidelines">Guide de marque</li>
+                    </ul>
+                    <a href="#contact" class="service-link"><span data-i18n="learnMore">En savoir plus</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </section>
 
@@ -238,18 +270,123 @@
                         <p class="response-time" data-i18n="responseTime">Réponse sous 24-48h</p>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form id="contactForm" class="contact-form">
                     <div class="form-group">
-                        <input type="text" name="name" data-i18n-placeholder="name" required>
+                        <input type="text" id="name" name="name" required data-i18n-placeholder="name" placeholder="Nom">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" data-i18n-placeholder="email" required>
+                        <input type="email" id="email" name="email" required data-i18n-placeholder="email" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <textarea name="message" data-i18n-placeholder="message" required></textarea>
+                        <textarea id="message" name="message" required data-i18n-placeholder="message" placeholder="Message"></textarea>
                     </div>
                     <button type="submit" class="submit-btn" data-i18n="send">Envoyer</button>
                 </form>
+            </div>
+        </section>
+
+        <!-- Section Avis Clients -->
+        <section class="testimonials">
+            <div class="section-header">
+                <span class="section-subtitle" data-i18n="testimonials">Avis clients</span>
+                <h2 data-i18n="testimonialsTitle">Ce qu'ils disent de moi</h2>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&h=200&auto=format&fit=crop" alt="Marie Laurent">
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Un excellent développeur qui a su transformer notre vision en réalité. Le résultat final dépasse nos attentes."
+                            </p>
+                            <div class="testimonial-info">
+                                <h4>Marie Laurent</h4>
+                                <span>CEO, TechStart</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=200&h=200&auto=format&fit=crop" alt="Thomas Martin">
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Professionnel, créatif et à l'écoute. La collaboration a été très agréable et le site est parfait."
+                            </p>
+                            <div class="testimonial-info">
+                                <h4>Thomas Martin</h4>
+                                <span>Fondateur, DesignCo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&h=200&auto=format&fit=crop" alt="Sophie Dubois">
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Une expertise technique impressionnante et un vrai sens du design. Je recommande vivement !"
+                            </p>
+                            <div class="testimonial-info">
+                                <h4>Sophie Dubois</h4>
+                                <span>Directrice Marketing, InnoWeb</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&h=200&auto=format&fit=crop" alt="Alexandre Durand">
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "La refonte de notre site e-commerce a considérablement augmenté nos conversions. Un travail remarquable !"
+                            </p>
+                            <div class="testimonial-info">
+                                <h4>Alexandre Durand</h4>
+                                <span>Directeur, E-Shop Plus</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?q=80&w=200&h=200&auto=format&fit=crop" alt="Émilie Moreau">
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Une approche moderne et innovante. Notre application mobile est exactement ce dont nous avions besoin."
+                            </p>
+                            <div class="testimonial-info">
+                                <h4>Émilie Moreau</h4>
+                                <span>Product Manager, AppInno</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&h=200&auto=format&fit=crop" alt="Lucas Bernard">
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                "Excellent suivi de projet et communication claire. Les délais ont été parfaitement respectés."
+                            </p>
+                            <div class="testimonial-info">
+                                <h4>Lucas Bernard</h4>
+                                <span>CTO, TechVision</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
         </section>
     </main>
