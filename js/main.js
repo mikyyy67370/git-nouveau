@@ -10,11 +10,11 @@ const projects = [
     },
     {
         id: 3,
-        title: "Identité visuelle StartUp",
+        title: "Site Vitrine Architecte",
         category: "brand",
         image: "image/projects/startup-brand.jpg",
         description: "Création de l'identité visuelle complète",
-        link: "https://deluxe-meerkat-1e2921.netlify.app/"
+        link: "https://atelierdesign.netlify.app/"
     },
     {
         id: 5,
