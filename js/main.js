@@ -45,23 +45,48 @@ window.addEventListener('scroll', () => {
 });
 
 // Gestion du menu mobile
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-const navLinksItems = document.querySelectorAll('.nav-links a');
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.querySelector('body');
 
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-});
+    if (hamburger && navMenu) {
+        // Toggle menu
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            // Empêcher le défilement quand le menu est ouvert
+            body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
 
-// Fermer le menu quand on clique sur un lien
-navLinksItems.forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.classList.remove('menu-open');
-    });
+        // Fermer le menu quand on clique sur un lien
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+
+        // Fermer le menu quand on clique en dehors
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && 
+                !hamburger.contains(e.target) && 
+                !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+
+        // Empêcher la fermeture quand on clique dans le menu
+        navMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
 });
 
 // Gestion des liens actifs
@@ -77,6 +102,7 @@ window.addEventListener('scroll', () => {
         }
     });
 
+    const navLinksItems = document.querySelectorAll('.nav-links a');
     navLinksItems.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').substring(1) === current) {
@@ -281,37 +307,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mise à jour lors du redimensionnement
     window.addEventListener('resize', updateSlider);
-});
-
-// Menu hamburger
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function(e) {
-            e.stopPropagation(); // Empêche la propagation du clic
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Ferme le menu quand on clique sur un lien
-        const navLinks = document.querySelectorAll('.nav-menu a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Ferme le menu quand on clique en dehors
-        document.addEventListener('click', (e) => {
-            if (navMenu.classList.contains('active') && 
-                !hamburger.contains(e.target) && 
-                !navMenu.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-    }
 });
