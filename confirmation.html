@@ -1,12 +1,85 @@
-<
-        // Afficher les détails du message
-        const formData = JSON.parse(localStorage.getItem('contactFormData') || '{}');
-        document.getElementById('senderName').textContent = formData.name || '';
-        document.getElementById('senderEmail').textContent = formData.email || '';
-        document.getElementById('senderMessage').textContent = formData.message || '';
-        
-        // Nettoyer les données après affichage
-        localStorage.removeItem('contactFormData');
-    </script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation - Portfolio Mika</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .confirmation-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background-color: #f5f5f5;
+        }
+
+        .confirmation-box {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .check-icon {
+            color: #4CAF50;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .confirmation-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .confirmation-message {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .return-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .return-button:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .confirmation-box {
+                padding: 2rem;
+            }
+
+            .confirmation-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="confirmation-box">
+            <div class="check-icon">✓</div>
+            <h1 class="confirmation-title">Message envoyé avec succès !</h1>
+            <p class="confirmation-message">
+                Merci de m'avoir contacté. Je vous répondrai dans les plus brefs délais.
+            </p>
+            <a href="index.html" class="return-button">Retour au portfolio</a>
+        </div>
+    </div>
 </body>
-</html> 
+</html>

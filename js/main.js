@@ -6,7 +6,7 @@ const projects = [
         category: "web",
         image: "image/projects/ecommerce.jpg",
         description: "Interface utilisateur pour une boutique en ligne",
-        link: "https://frabjous-strudel-32f77c.netlify.app/"
+        link: "https://ecomdemowebsite.netlify.app/"
     },
     {
         id: 3,
