@@ -15,34 +15,35 @@
 </head>
 <body>
     <header class="header">
-        <nav class="nav-container">
+        <div class="header-content">
             <div class="logo">
-                <a href="index.html" class="logo-link">
+                <a href="#home" class="logo-link">
                     <span class="logo-text">Mikael Portfolio</span>
                     <div class="logo-dot"></div>
                 </a>
             </div>
-            <div class="menu-toggle" id="mobile-menu">
+            <button class="hamburger" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home" data-i18n="home">Accueil</a></li>
-                <li><a href="#portfolio" data-i18n="portfolio">Portfolio</a></li>
-                <li><a href="#about" data-i18n="about">À propos</a></li>
-                <li><a href="#services" data-i18n="services">Services</a></li>
-                <li><a href="#contact" data-i18n="contact">Contact</a></li>
-                <li class="language-selector">
-                    <select id="languageSelect">
-                        <option value="fr">Français</option>
-                        <option value="en">English</option>
-                        <option value="de">Deutsch</option>
-                        <option value="es">Español</option>
-                    </select>
-                </li>
-            </ul>
-        </nav>
+            </button>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#home" data-i18n="home">Accueil</a></li>
+                    <li><a href="#about" data-i18n="about">À propos</a></li>
+                    <li><a href="#portfolio" data-i18n="portfolio">Portfolio</a></li>
+                    <li><a href="#contact" data-i18n="contact">Contact</a></li>
+                    <li class="language-selector">
+                        <select id="languageSelect">
+                            <option value="fr">FR</option>
+                            <option value="en">EN</option>
+                            <option value="es">ES</option>
+                            <option value="de">DE</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
