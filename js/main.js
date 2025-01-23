@@ -287,29 +287,31 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-menu a');
 
-    function toggleMenu() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    }
-
-    // Toggle menu when clicking hamburger
-    hamburger.addEventListener('click', toggleMenu);
-
-    // Close menu when clicking a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation(); // Empêche la propagation du clic
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
-    });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
+        // Ferme le menu quand on clique sur un lien
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Ferme le menu quand on clique en dehors
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && 
+                !hamburger.contains(e.target) && 
+                !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
 });
