@@ -2,11 +2,11 @@
 const projects = [
     {
         id: 2,
-        title: "Site E-commerce",
+        title: "Site Vitrine restaurant",
         category: "web",
         image: "image/projects/ecommerce.jpg",
         description: "Interface utilisateur pour une boutique en ligne",
-        link: "https://ecomdemowebsite.netlify.app/"
+        link: "https://lacucinademo.netlify.app/"
     },
     {
         id: 3,
@@ -34,6 +34,22 @@ const projects = [
     }
 ];
 
+// Effet de scroll pour le header
+const header = document.querySelector('.header');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add('scrolled');
+    } else if (currentScroll < lastScroll || currentScroll <= 100) {
+        header.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
+});
+
 // Gestion du header au scroll
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
@@ -48,45 +64,55 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-links a');
     const body = document.querySelector('body');
 
-    if (hamburger && navMenu) {
-        // Toggle menu
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            // Empêcher le défilement quand le menu est ouvert
-            body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-        });
-
-        // Fermer le menu quand on clique sur un lien
-        const navLinks = document.querySelectorAll('.nav-menu a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                body.style.overflow = '';
-            });
-        });
-
-        // Fermer le menu quand on clique en dehors
-        document.addEventListener('click', (e) => {
-            if (navMenu.classList.contains('active') && 
-                !hamburger.contains(e.target) && 
-                !navMenu.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                body.style.overflow = '';
-            }
-        });
-
-        // Empêcher la fermeture quand on clique dans le menu
-        navMenu.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
+    // Fonction pour ouvrir/fermer le menu
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     }
+
+    // Event listener pour le bouton hamburger
+    hamburger.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleMenu();
+    });
+
+    // Event listener pour les liens
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            toggleMenu();
+        });
+    });
+});
+
+// Gestion du menu mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const menuItems = document.querySelectorAll('.menu-items a');
+    const body = document.querySelector('body');
+
+    function toggleMenu() {
+        menuToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+    // Gestionnaire pour le bouton menu
+    menuToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleMenu();
+    });
+
+    // Fermer le menu quand on clique sur un lien
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            toggleMenu();
+        });
+    });
 });
 
 // Gestion des liens actifs
@@ -231,18 +257,40 @@ function goBack() {
 // Gestion du changement de langue
 document.addEventListener('DOMContentLoaded', function() {
     const languageSelect = document.getElementById('languageSelect');
-    
+    const languageSelectMobile = document.getElementById('languageSelectMobile');
+
+    // Synchroniser les sélecteurs de langue
+    function syncLanguageSelectors(sourceSelect, targetSelect) {
+        if (sourceSelect && targetSelect) {
+            targetSelect.value = sourceSelect.value;
+        }
+    }
+
     // Charger la langue sauvegardée ou utiliser le français par défaut
     const savedLanguage = localStorage.getItem('selectedLanguage') || 'fr';
     languageSelect.value = savedLanguage;
     updateLanguage(savedLanguage);
 
-    // Écouteur d'événement pour le changement de langue
-    languageSelect.addEventListener('change', function(e) {
-        const selectedLanguage = e.target.value;
-        updateLanguage(selectedLanguage);
-        localStorage.setItem('selectedLanguage', selectedLanguage);
-    });
+    // Event listeners pour les sélecteurs de langue
+    if (languageSelect) {
+        languageSelect.addEventListener('change', function() {
+            const selectedLang = this.value;
+            if (languageSelectMobile) {
+                languageSelectMobile.value = selectedLang;
+            }
+            updateLanguage(selectedLang);
+        });
+    }
+
+    if (languageSelectMobile) {
+        languageSelectMobile.addEventListener('change', function() {
+            const selectedLang = this.value;
+            if (languageSelect) {
+                languageSelect.value = selectedLang;
+            }
+            updateLanguage(selectedLang);
+        });
+    }
 });
 
 function updateLanguage(language) {
